@@ -16,3 +16,39 @@ _site/
 # counterproductive to check this file into the repository.
 # Details at https://github.com/github/pages-gem/issues/768
 Gemfile.lock
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.gz
+*.toc
+
+# Additional LaTeX outputs
+*.pdf
+*.dvi
+*.ps
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Editor and system files
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# macOS
+.AppleDouble
+.LSOverride
