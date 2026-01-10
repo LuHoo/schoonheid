@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  7 JAN 2026 14:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  9 JAN 2026 15:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1278,15 +1278,17 @@ Overfull \hbox (1.24828pt too wide) in paragraph at lines 501--503
 
 [37]
 
-[38]) (./chap02.tex) (./chap03.tex)
+[38]
+Package mdframed Info: mdframed works in twoside mode on input line 519.
 
-[39]
 
-[40
+[39]) (./chap02.tex) (./chap03.tex)
+
+[40]
+
+[41
 
 ]
-
-[41]
 
 [42]
 \tf@toc=\write5
@@ -1299,15 +1301,15 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 23958 strings out of 473190
- 437840 string characters out of 5715801
- 855364 words of memory out of 5000000
- 46774 multiletter control sequences out of 15000+600000
+ 23966 strings out of 473190
+ 438018 string characters out of 5715801
+ 854502 words of memory out of 5000000
+ 46782 multiletter control sequences out of 15000+600000
  645767 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,13n,113p,1454b,939s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplb.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on kant_kritiek.pdf (44 pages, 210758 bytes).
+Output written on kant_kritiek.pdf (44 pages, 214824 bytes).
 PDF statistics:
  175 PDF objects out of 1000 (max. 8388607)
  119 compressed objects within 2 object streams
