@@ -17,7 +17,8 @@
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{newpxtext,newpxmath}
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
 % Allow counters to be detached from higher-level counters
 \usepackage{chngcntr}
 
@@ -85,6 +86,7 @@
     #1\par
   }
   \medskip
+  \addcontentsline{toc}{subsection}{#1}%
 }
 
 % Define the 'Moment' command
