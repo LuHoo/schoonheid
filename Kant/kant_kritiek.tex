@@ -99,6 +99,19 @@
   \par\medskip
 }
 
+% Define the 'Subdivision' command
+\newcommand{\subdivname}{Subdivision}
+\newcounter{kantsubdiv}[kantbook]
+
+\newcommand{\subdiv}[1]{%
+  \refstepcounter{kantsubdiv}%
+  \par\medskip
+  \noindent
+  {\normalfont\large\bfseries \Alph{kantsubdiv}. #1}%
+  \par\medskip
+  \addcontentsline{toc}{subsubsection}{\Alph{kantsubdiv}. #1}%
+}
+
 \begin{document}
 \raggedbottom % Fixes the "Underfull \vbox" warnings by allowing flexible vertical spacing
 \normalfont
