@@ -20,32 +20,11 @@
 \usepackage{newpxtext,newpxmath}
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{0}
+
 % Allow counters to be detached from higher-level counters
 \usepackage{chngcntr}
 \usepackage{xcolor}
 
-% \makechapterstyle{mystyle}{
-%   \renewcommand{\chapnamefont}{\normalfont\sffamily}
-%   \renewcommand{\chapnumfont}{\normalfont\sffamily\Huge}
-%     \renewcommand{\chaptitlefont}{\normalfont\sffamily\Huge}
-%   \setlength{\beforechapskip}{0pt}
-%   \setlength{\midchapskip}{0pt}
-%   \setlength{\afterchapskip}{20pt} % Ruimte tussen titel en lijn
-%   \renewcommand{\printchaptername}{}
-%   \renewcommand{\chapternamenum}{}
-%   \renewcommand{\printchapternum}[1]{%
-%     {\chapnumfont \thechapter}%
-%   }
-%   \renewcommand{\afterchapternum}{}
-%   \renewcommand{\printchaptertitle}[1]{%
-%     \par\huge\chaptitlefont ##1%
-%   }
-%   \renewcommand{\afterchaptertitle}{%
-%     \par\nobreak\vskip \afterchapskip % Ruimte tussen titel en lijn
-%     \hrule% Horizontale lijn
-%     \par\nobreak\vskip 30pt % Extra witruimte onder de lijn
-%   }
-% }
 % Pas de hoofdstukstijl toe
 \chapterstyle{hangnum}
 
@@ -72,9 +51,9 @@
 \renewcommand{\partnumfont}{\Large\bfseries}
 \renewcommand{\parttitlefont}{\Huge\bfseries}
 
-\renewcommand{\thechapter}{\Roman{chapter}.}
+\renewcommand{\thechapter}{\Roman{chapter}}
 
-\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesection}{\arabic{section}}
 
 \renewcommand{\thesubsection}{\alph{subsection})}
 
@@ -92,6 +71,38 @@
 \renewcommand{\thesubsubsection}{%
   \greeksubsubsection{\value{subsubsection}})
 }
+
+% Stel de kopregels in
+\makepagestyle{mystyle}
+\makeevenhead{mystyle}{\leftmark}{}{}
+\makeoddhead{mystyle}{}{}{\rightmark}
+\makeevenfoot{mystyle}{}{\thepage}{}
+\makeoddfoot{mystyle}{}{\thepage}{}
+
+% Pas \chaptermark en \sectionmark aan om de gewenste informatie in \leftmark en \rightmark te zetten
+\renewcommand{\chaptermark}[1]{\markboth{\thepart\space Deel, \parttitle}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thechapter, \thesection\space #1}}
+
+% Zorg dat \parttitle beschikbaar is
+\newcommand{\parttitle}{}
+\makeatletter
+\let\latexpart\part
+\renewcommand\part{%
+  \@ifstar{\@spartstar}{\@spartnostar}%
+}
+\newcommand\@spartnostar[1]{%
+  \gdef\parttitle{#1}%
+  \latexpart{#1}%
+}
+\newcommand\@spartstar[1]{%
+  \gdef\parttitle{#1}%
+  \latexpart*{#1}%
+}
+\makeatother
+
+% Pas de paginastijl toe
+\pagestyle{mystyle}
+
 
 \newenvironment{compactitem}{
   \begin{itemize}[noitemsep, topsep=0pt]
