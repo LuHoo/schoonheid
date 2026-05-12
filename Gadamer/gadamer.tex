@@ -1,0 +1,141 @@
+% Master include file that incorporates chapter files via \input
+\documentclass[11pt, showtrims]{memoir}
+
+\setlength{\headheight}{41pt}
+\nouppercaseheads
+
+
+
+\renewcommand{\printbookname}{}
+\renewcommand{\printbooknum}{}
+% \renewcommand{\afterbooktitle}{\par\medskip}
+
+% Minimal preamble (copy or extend from ada_main.tex as needed)
+\usepackage[dutch]{babel}
+\usepackage{graphicx}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{newpxtext,newpxmath}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{0}
+% Allow counters to be detached from higher-level counters
+\usepackage{chngcntr}
+\usepackage{xcolor}
+
+% \makechapterstyle{mystyle}{
+%   \renewcommand{\chapnamefont}{\normalfont\sffamily}
+%   \renewcommand{\chapnumfont}{\normalfont\sffamily\Huge}
+%     \renewcommand{\chaptitlefont}{\normalfont\sffamily\Huge}
+%   \setlength{\beforechapskip}{0pt}
+%   \setlength{\midchapskip}{0pt}
+%   \setlength{\afterchapskip}{20pt} % Ruimte tussen titel en lijn
+%   \renewcommand{\printchaptername}{}
+%   \renewcommand{\chapternamenum}{}
+%   \renewcommand{\printchapternum}[1]{%
+%     {\chapnumfont \thechapter}%
+%   }
+%   \renewcommand{\afterchapternum}{}
+%   \renewcommand{\printchaptertitle}[1]{%
+%     \par\huge\chaptitlefont ##1%
+%   }
+%   \renewcommand{\afterchaptertitle}{%
+%     \par\nobreak\vskip \afterchapskip % Ruimte tussen titel en lijn
+%     \hrule% Horizontale lijn
+%     \par\nobreak\vskip 30pt % Extra witruimte onder de lijn
+%   }
+% }
+% Pas de hoofdstukstijl toe
+\chapterstyle{hangnum}
+
+\setsecnumdepth{subsubsection} % Zorgt ervoor dat secties genummerd worden
+
+\renewcommand{\thepart}{%
+  \ifcase\value{part}%
+    \or Eerste
+    \or Tweede
+    \or Derde
+    \or Vierde
+    \else \arabic{part}%
+  \fi}
+
+\renewcommand{\partname}{Deel}
+\renewcommand{\printpartname}{}
+\renewcommand{\printpartnum}{
+  \parttitlefont \thepart\space Deel}
+\renewcommand{\cftpartname}{}
+\renewcommand{\cftpartpresnum}{}
+\renewcommand{\cftpartaftersnum}{\space Deel\quad}
+\setlength{\cftpartnumwidth}{8em}
+\setlength{\cftpartindent}{0em}
+\renewcommand{\partnumfont}{\Large\bfseries}
+\renewcommand{\parttitlefont}{\Huge\bfseries}
+
+\renewcommand{\thechapter}{\Roman{chapter}.}
+
+\renewcommand{\thesection}{\arabic{section}.}
+
+\renewcommand{\thesubsection}{\alph{subsection})}
+
+\newcommand{\greeksubsubsection}[1]{%
+\ifcase#1%
+\or $\alpha$
+\or $\beta$
+\or $\gamma$
+\or $\delta$
+\or $\epsilon$
+\else #1%
+\fi
+  }
+
+\renewcommand{\thesubsubsection}{%
+  \greeksubsubsection{\value{subsubsection}})
+}
+
+\newenvironment{compactitem}{
+  \begin{itemize}[noitemsep, topsep=0pt]
+}{
+  \end{itemize}
+}
+
+\newenvironment{compactenum}{
+  \begin{enumerate}[noitemsep, topsep=0pt]
+}{
+  \end{enumerate}
+}
+
+% Verticale spacing aanpassen (optioneel)
+\setbeforesecskip{1em}  % ruimte boven sectie
+\setaftersecskip{0.5em} %
+
+
+\begin{document}
+\raggedbottom % Fixes the "Underfull \vbox" warnings by allowing flexible vertical spacing
+\normalfont
+
+% Optional front matter
+\setcounter{tocdepth}{3}
+\frontmatter
+\tableofcontents
+
+\input{inleiding.tex}
+\addcontentsline{toc}{chapter}{Inleiding}
+
+% Main content: include the chapter files arranged in parts
+\mainmatter
+
+\part{De vraag naar de waarheid zoals die naar voren komt in de ervaring van kunst}
+\input{chap01.tex}
+\input{chap02.tex}
+
+\part{De uitbreiding van de vraag naar de waarheid tot het begrip in de geesteswetenschappen}
+% \input{chap03.tex}
+
+
+\part{De ontologische verschuiving van de hermeneutiek, geleid door taal}
+
+% Optional back matter
+\backmatter
+
+\end{document}

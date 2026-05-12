@@ -1,0 +1,208 @@
+\documentclass[11pt, showtrims]{memoir}
+
+\setlength{\headheight}{41pt}
+\nouppercaseheads
+
+\title{Kant's Kritiek op de Schoonheid: Een Begrijpelijke Uitleg}
+
+
+
+\renewcommand{\printbookname}{}
+\renewcommand{\printbooknum}{}
+% \renewcommand{\afterbooktitle}{\par\medskip}
+
+% Minimal preamble (copy or extend from ada_main.tex as needed)
+\usepackage[dutch]{babel}
+\usepackage{graphicx}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{newpxtext,newpxmath}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{2}
+% Allow counters to be detached from higher-level counters
+\usepackage{chngcntr}
+
+\newenvironment{compactitem}{
+  \begin{itemize}[noitemsep, topsep=0pt]
+}{
+  \end{itemize}
+}
+
+\newenvironment{compactenum}{
+  \begin{enumerate}[noitemsep, topsep=0pt]
+}{
+  \end{enumerate}
+}
+
+% Zorg dat de ToC ook de nieuwe nummering toont
+\setsecnumformat{\csname thesection\endcsname\quad}
+
+% Use the memoir default chapter style
+\makechapterstyle{kant}{
+  \setlength{\beforechapskip}{30pt}
+  \setlength{\afterchapskip}{25pt}
+
+  \renewcommand{\chapnamefont}{\normalfont\Large\bfseries}
+  \renewcommand{\chaptitlefont}{\normalfont\huge\bfseries}
+
+  \renewcommand{\printchaptername}{}
+  \renewcommand{\printchapternum}{}
+  \renewcommand{\afterchapternum}{}
+}
+
+\chapterstyle{kant}
+
+\makeatletter
+\renewcommand{\chaptermark}[1]{%
+  \markboth{#1}{#1}%
+}
+\makeatother
+
+% Make \section numbering continuous across chapters (no 1.1, 1.2 resetting)
+\counterwithout{section}{chapter}
+\renewcommand{\thesection}{\S\arabic{section}}
+
+% \setsecnumformat{\thesection\quad}           % nummer + spatie
+
+% Section titel in normale tekst (niet vet)
+\setsecheadstyle{\normalfont} % je kunt \Large, \large, etc. gebruiken
+
+% Verticale spacing aanpassen (optioneel)
+\setbeforesecskip{1em}  % ruimte boven sectie
+\setaftersecskip{0.5em} %
+
+\usepackage[symbol]{footmisc} % Use symbols for footnotes
+
+
+% Define the 'Book' command
+\newcommand{\kantbookname}{Book}
+\newcounter{kantbook}[chapter]
+
+\newcommand{\kantbook}[1]{%
+  \refstepcounter{kantbook}%
+  \par\needspace{4\baselineskip}
+  \bigskip
+  {\Large\bfseries\raggedright
+    #1\par
+  }
+  \medskip
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
+% Define the 'Moment' command
+\newcommand{\momentname}{Moment}
+
+\newcommand{\moment}[1]{%
+  \par\medskip
+  \noindent
+  {\normalfont\large\itshape #1}%
+  \par\medskip
+}
+
+% Define the 'Subdivision' command
+\newcommand{\subdivname}{Subdivision}
+\newcounter{kantsubdiv}[kantbook]
+
+\newcommand{\subdiv}[1]{%
+  \refstepcounter{kantsubdiv}%
+  \par\medskip
+  \noindent
+  {\normalfont\large\bfseries \Alph{kantsubdiv}. #1}%
+  \par\medskip
+  \addcontentsline{toc}{subsubsection}{\Alph{kantsubdiv}. #1}%
+}
+
+\begin{document}
+
+\maketitle
+
+\textit{Kants Denken over Schoonheid en Kunst}
+
+\subsection*{1. Waarom is schoonheid belangrijk?}
+
+In het denken van Immanuel Kant speelt schoonheid een bijzondere rol. Het is als een brug tussen twee werelden: aan de ene kant de wereld van de natuur, die werkt volgens vaste wetten (zoals zwaartekracht of biologie), en aan de andere kant de wereld van de vrijheid, waar we zelf keuzes maken en morele regels volgen. Zonder schoonheid zouden deze twee werelden los van elkaar staan, en zouden we ons gevangen voelen tussen een wereld die we niet kunnen veranderen en een wereld die alleen maar over regels en plichten gaat.
+
+Kant stelt zich de vraag: \textit{Hoe kan iets mooi zijn voor iedereen, terwijl smaak toch iets persoonlijks lijkt?} Het gaat hem niet om wat mensen toevallig leuk vinden, maar om de vraag of schoonheid een soort universele waarde heeft. Een oordeel over schoonheid is niet hetzelfde als zeggen dat iets lekker is (dat is persoonlijk) of dat iets goed is (dat gaat over regels). Schoonheid is iets anders: het gaat over hoe iets je \textit{doet voelen}, zonder dat je er direct iets mee wilt of er een doel mee hebt.
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Kant wil laten zien dat schoonheid niet zomaar een kwestie is van ``lekker vinden'' of ``handig zijn''. Als schoonheid alleen maar persoonlijk was, zou kunst niet echt belangrijk zijn. Als schoonheid een wetenschappelijk feit was, dan konden we het met formules bewijzen, en was kunst overbodig. Maar schoonheid is juist iets dat ons verbindt, zonder dat we het hoeven te bewijzen.
+
+\subsection*{2. Schoonheid is niet hetzelfde als ``lekker'' of ``handig''}
+
+Om te begrijpen wat schoonheid is, moeten we eerst kijken naar het verschil tussen drie dingen:
+
+\begin{itemize}
+    \item \textbf{Het Aangename:} Dit is iets dat je gewoon lekker vindt, zoals een heerlijke maaltijd of een warme deken. Dit is persoonlijk en hangt af van je eigen smaak en behoeften.
+    \item \textbf{Het Goede:} Dit is iets dat nuttig of moreel juist is, zoals een goed medicijn of een eerlijke daad. Dit gaat over regels en doelen.
+    \item \textbf{Het Schone:} Dit is iets dat je mooi vindt, zonder dat je er iets mee wilt of er een doel mee hebt. Je kijkt er gewoon naar en geniet ervan, zonder dat je het nodig hebt.
+\end{itemize}
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Kant zegt dat schoonheid iets is dat je gewoon kunt waarderen, zonder dat je er iets voor terug wilt. Als je een schilderij mooi vindt, is dat niet omdat je het wilt kopen of omdat het iets nuttigs doet. Het is gewoon mooi, en dat is genoeg. Dit zorgt ervoor dat kunst en schoonheid vrij blijven van commerciële belangen of morele druk.
+
+\subsection*{3. Schoonheid voelt universeel, maar is persoonlijk}
+
+Als je zegt: ``Deze bloem is mooi,'' dan bedoel je niet alleen dat \textit{jij} hem mooi vindt. Je verwacht eigenlijk dat andere mensen hem ook mooi vinden. Dat is raar, want smaak is toch persoonlijk? Toch doen we alsof schoonheid iets is dat in het voorwerp zelf zit, en niet alleen in ons hoofd.
+
+Kant noemt dit de ``universele stem'': we praten over schoonheid alsof het voor iedereen geldt, ook al weten we dat niet iedereen het met ons eens zal zijn. Het is alsof we aannemen dat andere mensen op dezelfde manier naar de wereld kijken als wij.
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Dit idee zorgt ervoor dat we met elkaar kunnen praten over schoonheid, alsof het iets is dat we delen. Zonder dit idee zou schoonheid iets zijn dat iedereen voor zichzelf houdt, en konden we er nooit over discussiëren.
+
+\subsection*{4. Schoonheid ontstaat in ons hoofd}
+
+Kant zegt dat schoonheid niet alleen in het voorwerp zelf zit, maar in hoe ons hoofd erop reageert. Als we iets mooi vinden, is dat omdat onze verbeelding en ons verstand samenwerken, zonder dat we er bewust over na hoeven te denken. Dit noemt hij het ``vrije spel'' van onze geestesvermogens: onze gedachten en gevoelens werken samen, en dat voelt goed.
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Dit betekent dat schoonheid niet iets is dat we leren, maar iets dat in ons zit. Het is een teken dat onze geest goed werkt, en dat we de wereld op een bepaalde manier kunnen begrijpen.
+
+\subsection*{5. Schoonheid heeft geen doel, maar voelt wel doelmatig}
+
+Schoonheid heeft geen specifiek doel, zoals een gereedschap of een medicijn. Toch voelt het alsof iets moois ``goed'' is, alsof het ergens voor bedoeld is. Kant noemt dit ``doelmatigheid zonder doel'': iets ziet eruit alsof het een bedoeling heeft, maar we weten niet wat die bedoeling is.
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Dit idee helpt ons om de wereld te zien als iets dat betekenis heeft, zonder dat we precies weten wat die betekenis is. Het stelt ons in staat om te genieten van de wereld, zonder dat we alles hoeven te verklaren.
+
+\subsection*{6. Echte schoonheid gaat niet over emoties of prikkels}
+
+Kant waarschuwt dat we schoonheid niet moeten verwarren met dingen die ons opwinden of emotioneel raken. Echte schoonheid gaat over de vorm van iets, niet over de kleuren, geluiden of gevoelens die het oproept. Als je iets mooi vindt omdat het je raakt, is dat niet dezelfde schoonheid als waar Kant het over heeft.
+
+\smallskip
+
+\textbf{Waarom is dit belangrijk?}
+Kant wil dat we schoonheid zien als iets dat ons hoofd activeert, niet alleen onze gevoelens. Het gaat om hoe iets in elkaar zit, niet om hoe het ons doet voelen.
+
+\subsection*{7. Conclusie: Wat is schoonheid eigenlijk?}
+
+Schoonheid is volgens Kant iets dat:
+\begin{enumerate}
+    \item \textbf{Belangeloos} is: je vindt het mooi zonder dat je er iets mee wilt.
+    \item \textbf{Universeel} voelt: je verwacht dat anderen het ook mooi vinden, ook al is smaak persoonlijk.
+    \item \textbf{Doelmatig} lijkt: het voelt alsof het ergens voor bedoeld is, maar we weten niet waarvoor.
+\end{enumerate}
+
+Schoonheid is dus iets dat ons verbindt, zonder dat we het hoeven te bewijzen. Het laat zien dat we niet alleen maar individuen zijn, maar deel uitmaken van een gemeenschap die de wereld op dezelfde manier kan ervaren.
+
+\subsection*{Samenvatting}
+
+\begin{itemize}
+    \item Schoonheid is iets dat we gewoon kunnen waarderen, zonder dat we er iets voor terug willen.
+    \item Het voelt alsof schoonheid voor iedereen geldt, ook al is smaak persoonlijk.
+    \item Schoonheid helpt ons om de wereld te zien als iets dat betekenis heeft, zonder dat we alles hoeven uit te leggen.
+\end{itemize}
+
+Kortom: schoonheid is een manier om ons thuis te voelen in de wereld, en om ons verbonden te voelen met anderen.
+
+\end{document}
